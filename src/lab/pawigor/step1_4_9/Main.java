@@ -1,9 +1,45 @@
-package lab.pawigor;
+package lab.pawigor.step1_4_9;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+
+/**
+ * Найти количество компонент связности неориентированного графа при помощи поиска в глубину.
+ * <p>
+ * Формат входных данных:
+ * На вход подаётся описание графа. В первой строке указаны два натуральных числа, разделенные пробелом: число
+ * вершин v≤1000 и число рёбер e≤1000. В следующих e строках содержатся описания рёбер. Каждое ребро задаётся
+ * разделённой пробелом парой номеров вершин, которые это ребро соединяет.
+ * Считается, что вершины графа пронумерованы числами от 1 до v.
+ * <p>
+ * Формат выходных данных:
+ * <p>
+ * Одно число — количество компонент связности графа.
+ * <p>
+ * Sample Input 1:
+ * <p>
+ * 4 2
+ * 1 2
+ * 3 2
+ * <p>
+ * Sample Output 1:
+ * <p>
+ * 2
+ * <p>
+ * <p>
+ * Sample Input 2:
+ * <p>
+ * 4 3
+ * 1 2
+ * 3 2
+ * 4 3
+ * <p>
+ * Sample Output 2:
+ * <p>
+ * 1
+ */
 
 public class Main {
 
@@ -68,8 +104,7 @@ public class Main {
 
         public int walk() {
             int visits = 0;
-            for (int i = 0; i < vertexes.length; i++) {
-                Vertex vertex = vertexes[i];
+            for (Vertex vertex : vertexes) {
                 if (!vertex.wasVisited) {
                     visit(vertex);
                     visits++;
